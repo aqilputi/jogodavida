@@ -10,29 +10,31 @@ public class Main {
 		String s;
 		int option = 0;
 		
-		while(true) {
-			
-			System.out.println("Digite o par de celula viva, `c` para continuar ou `q` "
-					+ "para terminar o programa");
+		System.out.println("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa");
+		while(true) {	
 			s = scan.nextLine();
 			try {
 				option = Input.handle(s);
 			}catch(IllegalArgumentException e) {
-				System.out.println(e);
+				System.out.println("Valor inserido invalido, digite novamente");
+				option = -1;
 			}
 
-				if (option == -1)
-					break;
-				
 				if (option == 2) {
 					c.createLife(Character.getNumericValue(s.charAt(0)),
 							Character.getNumericValue(s.charAt(2)));
-				}else {
+					c.print();
+				}
+				if (option == 1){
 					c.print();
 					c.calcNextGen();
 					c.updateGen();
+					c.print();
 				}
-				c.print();
+				
 				
 				
 		}

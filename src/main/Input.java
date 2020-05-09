@@ -12,10 +12,12 @@ public class Input {
 		if(inputstr.length() == 3)
 			
 			if(Character.isDigit(inputstr.charAt(0)))
-				if(Character.getNumericValue(inputstr.charAt(0)) < 5)
+				if(Character.getNumericValue(inputstr.charAt(0)) <= 5 && 
+						Character.getNumericValue(inputstr.charAt(0)) >= 0)
 					if(inputstr.charAt(1) == ' ')
 						if(Character.isDigit(inputstr.charAt(2)))
-							if(Character.getNumericValue(inputstr.charAt(2)) < 5)
+							if(Character.getNumericValue(inputstr.charAt(2)) <= 5 && 
+									Character.getNumericValue(inputstr.charAt(2)) >= 0)
 								return 2;
 	
         throw new IllegalArgumentException(inputstr);
