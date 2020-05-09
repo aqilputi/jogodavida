@@ -34,10 +34,13 @@ public class Main {
 					c.updateGen();
 					c.print();
 				}
-				
-				
+				if (option == -1) {
+					break;
+				}
 				
 		}
+		System.out.println("FIM");
+
 		/*
 		c.createLife(2, 2);
 		c.createLife(3, 2);
