@@ -52,7 +52,7 @@ public class Main {
 		c.print();
 		*/
 		
-		// TODO Auto-generated method stub
+		scan.close();
 
 	}
 

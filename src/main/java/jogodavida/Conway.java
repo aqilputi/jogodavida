@@ -84,7 +84,7 @@ public class Conway {
 			if(count == 3)
 				return true;
 		
-		//nao foi possivel reviver celular
+		//nao foi possivel reviver celula
 		return false;
 	}
 		
@@ -93,10 +93,9 @@ public class Conway {
 		for(int i=0; i < world.length; i++) {
 			for(int j=0; j < world.length; j++) {
 				if(world[i][j][0] == true)
-					
-					System.out.print(1);
+					System.out.print("1");
 				else 
-					System.out.print(0);
+					System.out.print("0");
 				System.out.print(" ");
 			}
 			System.out.println();
