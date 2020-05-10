@@ -19,7 +19,6 @@ public class Main {
 				option = Input.handle(s);
 			}catch(IllegalArgumentException e) {
 				System.out.println("Valor inserido invalido, digite novamente");
-				option = -1;
 			}
 
 				if (option == 2) {
