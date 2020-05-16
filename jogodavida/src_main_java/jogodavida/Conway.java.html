@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../../jacoco-resources/report.gif" type="image/gif"/><title>Conway.java</title><link rel="stylesheet" href="../../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../../index.html" class="el_report">jogodavida (May 16, 2020 5:33:07 PM)</a> &gt; <a href="../../index.html" class="el_group">jogodavida</a> &gt; <a href="../index.html" class="el_bundle">src/main/java</a> &gt; <a href="index.source.html" class="el_package">jogodavida</a> &gt; <span class="el_source">Conway.java</span></div><h1>Conway.java</h1><pre class="source lang-java linenums">package jogodavida;
+
+public class Conway {
+	boolean[][][] world;
+	
+<span class="fc" id="L6">	public Conway(int gamesize) {</span>
+<span class="fc" id="L7">		world = new boolean[gamesize][gamesize][2];</span>
+<span class="fc" id="L8">	}</span>
+	
+	public int createLife(int x, int y) {
+<span class="fc" id="L11">		world[x][y][0] = true;</span>
+<span class="fc" id="L12">		return 0;</span>
+	}
+	
+	public int updateGen() {
+<span class="fc bfc" id="L16" title="All 2 branches covered.">		for(boolean[][] row : world) {</span>
+<span class="fc bfc" id="L17" title="All 2 branches covered.">			for(boolean[] cell : row) {</span>
+<span class="fc" id="L18">				cell[0] = cell[1];</span>
+<span class="fc" id="L19">				cell[1] = false;</span>
+			}
+		}
+<span class="fc" id="L22">		return 0;</span>
+	}
+	
+	public int calcNextGen() {
+<span class="fc bfc" id="L26" title="All 2 branches covered.">		for(int i = 0; i &lt; world.length; i++) {</span>
+<span class="fc bfc" id="L27" title="All 2 branches covered.">			for(int j = 0; j &lt; world.length; j++) {</span>
+<span class="fc bfc" id="L28" title="All 2 branches covered.">				if(tryReviveCell(world[i][j], i, j))</span>
+<span class="fc" id="L29">					world[i][j][1] = true;</span>
+			}
+			
+		}
+<span class="fc" id="L33">		return 0;</span>
+	}
+	
+	private int countNeighbors(int x, int y) {
+		// x x x
+		// x 0 x  necessario checar todos os vizinhos (se possivel)
+		// x x x
+<span class="fc" id="L40">		int count = 0;</span>
+		//diagonal superior esquerda
+<span class="fc bfc" id="L42" title="All 4 branches covered.">		if(x &gt; 0 &amp;&amp; y &gt; 0)</span>
+<span class="fc bfc" id="L43" title="All 2 branches covered.">			if(world[x-1][y-1][0] == true)</span>
+<span class="fc" id="L44">				count++;</span>
+		//esquerda
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		if(x &gt; 0)</span>
+<span class="fc bfc" id="L47" title="All 2 branches covered.">			if(world[x-1][y][0] == true)</span>
+<span class="fc" id="L48">				count++;</span>
+		//diagonal inferior esquerda
+<span class="fc bfc" id="L50" title="All 4 branches covered.">		if(x &gt; 0 &amp;&amp; y &lt; world.length-1)</span>
+<span class="fc bfc" id="L51" title="All 2 branches covered.">			if(world[x-1][y+1][0] == true)</span>
+<span class="fc" id="L52">				count++;</span>
+		//cima
+<span class="fc bfc" id="L54" title="All 2 branches covered.">		if(y &gt; 0)</span>
+<span class="fc bfc" id="L55" title="All 2 branches covered.">			if(world[x][y-1][0] == true)</span>
+<span class="fc" id="L56">				count++;</span>
+		//baixo
+<span class="fc bfc" id="L58" title="All 2 branches covered.">		if(y &lt; world.length-1)</span>
+<span class="fc bfc" id="L59" title="All 2 branches covered.">			if(world[x][y+1][0] == true)</span>
+<span class="fc" id="L60">				count++;</span>
+		//diagonal superior direita
+<span class="fc bfc" id="L62" title="All 4 branches covered.">		if(x &lt; world.length-1 &amp;&amp; y &gt; 0)</span>
+<span class="fc bfc" id="L63" title="All 2 branches covered.">			if(world[x+1][y-1][0] == true)</span>
+<span class="fc" id="L64">				count++;</span>
+		//direita
+<span class="fc bfc" id="L66" title="All 2 branches covered.">		if(x &lt; world.length-1)</span>
+<span class="fc bfc" id="L67" title="All 2 branches covered.">			if(world[x+1][y][0] == true)</span>
+<span class="fc" id="L68">				count++;</span>
+		//diagonal inferior direita
+<span class="fc bfc" id="L70" title="All 4 branches covered.">		if(x &lt; world.length-1 &amp;&amp; y &lt; world.length-1)</span>
+<span class="fc bfc" id="L71" title="All 2 branches covered.">			if(world[x+1][y+1][0] == true)</span>
+<span class="fc" id="L72">				count++;</span>
+		
+<span class="fc" id="L74">		return count;</span>
+	}
+	
+	private boolean tryReviveCell(boolean[] cell, int x, int y) {
+<span class="fc" id="L78">		int count = countNeighbors(x,y);</span>
+		
+<span class="fc bfc" id="L80" title="All 2 branches covered.">		if(cell[0] == true) { //celula ja viva</span>
+<span class="pc bpc" id="L81" title="1 of 4 branches missed.">			if(count == 2 || count == 3)</span>
+<span class="fc" id="L82">				return true;</span>
+		}else
+<span class="fc bfc" id="L84" title="All 2 branches covered.">			if(count == 3)</span>
+<span class="fc" id="L85">				return true;</span>
+		
+		//nao foi possivel reviver celula
+<span class="fc" id="L88">		return false;</span>
+	}
+		
+	public void print() {
+<span class="fc" id="L92">		System.out.flush();  </span>
+<span class="fc bfc" id="L93" title="All 2 branches covered.">		for(int i=0; i &lt; world.length; i++) {</span>
+<span class="fc bfc" id="L94" title="All 2 branches covered.">			for(int j=0; j &lt; world.length; j++) {</span>
+<span class="fc bfc" id="L95" title="All 2 branches covered.">				if(world[i][j][0] == true)</span>
+<span class="fc" id="L96">					System.out.print(&quot;1&quot;);</span>
+				else 
+<span class="fc" id="L98">					System.out.print(&quot;0&quot;);</span>
+<span class="fc" id="L99">				System.out.print(&quot; &quot;);</span>
+			}
+<span class="fc" id="L101">			System.out.println();</span>
+		}
+<span class="fc" id="L103">		System.out.println();</span>
+<span class="fc" id="L104">	}</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.5.201910111838</span>jogodavida (May 16, 2020 5:33:07 PM)</div></body></html>
