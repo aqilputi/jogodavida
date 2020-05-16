@@ -9,7 +9,7 @@ import java.io.PrintStream;
 
 import org.junit.Before;
 
-public class MainTestCase {
+public class TestSetFunc {
 
 	private InputStream inputStream;
 	private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
