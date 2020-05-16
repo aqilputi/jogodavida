@@ -74,7 +74,7 @@ public class MainTestCase {
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n"
 				+ "Valor inserido invalido, digite novamente\n"
-				+ "FIM", outContent.toString());
+				+ "FIM\n", outContent.toString());
 	}
 	
 	@org.junit.Test
@@ -90,7 +90,7 @@ public class MainTestCase {
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n"
 				+ "Valor inserido invalido, digite novamente\n"
-				+ "FIM", outContent.toString());
+				+ "FIM\n", outContent.toString());
 	}
 	
 	@org.junit.Test
@@ -106,7 +106,7 @@ public class MainTestCase {
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n"
 				+ "Valor inserido invalido, digite novamente\n"
-				+ "FIM", outContent.toString());
+				+ "FIM\n", outContent.toString());
 	}
 
 	@org.junit.Test
@@ -144,7 +144,11 @@ public class MainTestCase {
 	    System.setIn(inputStream);
 	    Main.main(null);
 	    
-	    assertEquals("FIM", outContent.toString());
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"
+				+ "FIM\n", outContent.toString());
 	}
 	
 	@org.junit.Test
@@ -160,7 +164,7 @@ public class MainTestCase {
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n"
 				+ "Valor inserido invalido, digite novamente\n"
-				+ "FIM", outContent.toString());
+				+ "FIM\n", outContent.toString());
 	}
 	
 	@org.junit.Test
@@ -176,6 +180,6 @@ public class MainTestCase {
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n"
 				+ "Valor inserido invalido, digite novamente\n"
-				+ "FIM", outContent.toString());
+				+ "FIM\n", outContent.toString());
 	}
 }
