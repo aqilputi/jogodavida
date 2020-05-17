@@ -110,5 +110,94 @@ public class TestSetEstr {
 				+ "FIM\n", outContent.toString());
 	}
 
-
+	@org.junit.Test
+	public void test2() {
+		
+		String input = "a\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"
+				+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
+	
+	@org.junit.Test
+	public void test3() {
+		
+		String input = "c 6\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
+	
+	@org.junit.Test
+	public void test4() {
+		
+		String input = "6 6\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
+	
+	@org.junit.Test
+	public void test5() {
+		
+		String input = "111\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
+	
+	@org.junit.Test
+	public void test6() {
+		
+		String input = "5 a\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
+	
+	@org.junit.Test
+	public void test7() {
+		
+		String input = "5 6\nq\n";
+		inputStream = new ByteArrayInputStream(input.getBytes());
+	    System.setIn(inputStream);
+	    Main.main(null);
+	    
+	    assertEquals("Digite \n"
+				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
+				+ "ou `c` para continuar, \n"
+				+ "ou `q` para terminar o programa\n"+ "Valor inserido invalido, digite novamente\n"
+				+ "FIM\n", outContent.toString());
+	}
 }
