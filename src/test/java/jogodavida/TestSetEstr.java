@@ -8,7 +8,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 import org.junit.Before;
-import org.junit.Test;
 
 public class TestSetEstr {
 

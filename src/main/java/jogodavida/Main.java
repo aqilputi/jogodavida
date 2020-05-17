@@ -9,16 +9,16 @@ public class Main {
 		String s;
 		int option = 0;
 		
-		System.out.println("Digite \n"
+		System.out.print("Digite \n"
 				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
 				+ "ou `c` para continuar, \n"
-				+ "ou `q` para terminar o programa");
+				+ "ou `q` para terminar o programa\n");
 		while(true) {	
 			s = scan.nextLine();
 			try {
 				option = Input.handle(s);
 			}catch(IllegalArgumentException e) {
-				System.out.println("Valor inserido invalido, digite novamente");
+				System.out.print("Valor inserido invalido, digite novamente\n");
 			}
 
 				if (option == 2) {
@@ -37,7 +37,7 @@ public class Main {
 				}
 				
 		}
-		System.out.println("FIM");
+		System.out.print("FIM\n");
 
 		/*
 		c.createLife(2, 2);

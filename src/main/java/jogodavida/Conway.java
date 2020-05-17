@@ -98,8 +98,8 @@ public class Conway {
 					System.out.print("0");
 				System.out.print(" ");
 			}
-			System.out.println();
+			System.out.print("\n");
 		}
-		System.out.println();
+		System.out.print("\n");
 	}
 }
