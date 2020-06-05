@@ -9,17 +9,16 @@ public class Input {
 				return -1;
 		}
 		
-		if(inputstr.length() == 3)
+		if(inputstr.length() == 3) {
+			int x = Character.getNumericValue(inputstr.charAt(0));
+			int space = inputstr.charAt(1);
+			int y = Character.getNumericValue(inputstr.charAt(2));
+			if(x < Conway.size && x != -1 )
+				if(space == ' ')
+					if(y < Conway.size && y != -1) 
+						return 2;
+		}
 			
-			if(Character.isDigit(inputstr.charAt(0)))
-				if(Character.getNumericValue(inputstr.charAt(0)) <= 5 && 
-						Character.getNumericValue(inputstr.charAt(0)) >= 0)
-					if(inputstr.charAt(1) == ' ')
-						if(Character.isDigit(inputstr.charAt(2)))
-							if(Character.getNumericValue(inputstr.charAt(2)) <= 5 && 
-									Character.getNumericValue(inputstr.charAt(2)) >= 0)
-								return 2;
-	
         throw new IllegalArgumentException(inputstr);
 	}
 		

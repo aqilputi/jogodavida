@@ -1,10 +1,13 @@
 package jogodavida;
 
+
 public class Conway {
+	public static int size = 6;
+	
 	boolean[][][] world;
 	
-	public Conway(int gamesize) {
-		world = new boolean[gamesize][gamesize][2];
+	public Conway() {
+		world = new boolean[Conway.size][Conway.size][2];
 	}
 	
 	public int createLife(int x, int y) {
@@ -40,35 +43,35 @@ public class Conway {
 		int count = 0;
 		//diagonal superior esquerda
 		if(x > 0 && y > 0)
-			if(world[x-1][y-1][0] == true)
+			if(world[x-1][y-1][0])
 				count++;
 		//esquerda
 		if(x > 0)
-			if(world[x-1][y][0] == true)
+			if(world[x-1][y][0])
 				count++;
 		//diagonal inferior esquerda
 		if(x > 0 && y < world.length-1)
-			if(world[x-1][y+1][0] == true)
+			if(world[x-1][y+1][0])
 				count++;
 		//cima
 		if(y > 0)
-			if(world[x][y-1][0] == true)
+			if(world[x][y-1][0])
 				count++;
 		//baixo
 		if(y < world.length-1)
-			if(world[x][y+1][0] == true)
+			if(world[x][y+1][0])
 				count++;
 		//diagonal superior direita
 		if(x < world.length-1 && y > 0)
-			if(world[x+1][y-1][0] == true)
+			if(world[x+1][y-1][0])
 				count++;
 		//direita
 		if(x < world.length-1)
-			if(world[x+1][y][0] == true)
+			if(world[x+1][y][0])
 				count++;
 		//diagonal inferior direita
 		if(x < world.length-1 && y < world.length-1)
-			if(world[x+1][y+1][0] == true)
+			if(world[x+1][y+1][0])
 				count++;
 		
 		return count;
@@ -77,7 +80,7 @@ public class Conway {
 	private boolean tryReviveCell(boolean[] cell, int x, int y) {
 		int count = countNeighbors(x,y);
 		
-		if(cell[0] == true) { //celula ja viva
+		if(cell[0]) { //celula ja viva
 			if(count == 2 || count == 3)
 				return true;
 		}else
@@ -88,11 +91,10 @@ public class Conway {
 		return false;
 	}
 		
-	public void print() {
-		System.out.flush();  
+	public void print() { 
 		for(int i=0; i < world.length; i++) {
 			for(int j=0; j < world.length; j++) {
-				if(world[i][j][0] == true)
+				if(world[i][j][0])
 					System.out.print("1");
 				else 
 					System.out.print("0");

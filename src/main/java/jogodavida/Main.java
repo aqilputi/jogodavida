@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Conway c = new Conway(6);
+		Conway c = new Conway();
 		Scanner scan = new Scanner(System.in);
 		String s;
 		int option = 0;
@@ -13,7 +13,7 @@ public class Main {
 				+ "ou as coordenadas de uma celular vira no formato 'x y' separados por espaco (0 <= x, y <= 5),\n"
 				+ "ou `c` para continuar, \n"
 				+ "ou `q` para terminar o programa\n");
-		while(true) {	
+		while(option != -1) {	
 			s = scan.nextLine();
 			try {
 				option = Input.handle(s);
@@ -32,25 +32,10 @@ public class Main {
 					c.updateGen();
 					c.print();
 				}
-				if (option == -1) {
-					break;
-				}
+
 				
 		}
 		System.out.print("FIM\n");
-
-		/*
-		c.createLife(2, 2);
-		c.createLife(3, 2);
-		c.createLife(4, 2);
-		c.print();
-		c.calcNextGen();
-		c.updateGen();
-		c.print();
-		c.calcNextGen();
-		c.updateGen();
-		c.print();
-		*/
 		
 		scan.close();
 
