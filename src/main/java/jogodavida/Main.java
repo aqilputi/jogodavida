@@ -17,21 +17,22 @@ public class Main {
 			s = scan.nextLine();
 			try {
 				option = Input.handle(s);
-			}catch(IllegalArgumentException e) {
+			} catch(IllegalArgumentException e) {
 				System.out.print("Valor inserido invalido, digite novamente\n");
 			}
 
-				if (option == 2) {
-					c.createLife(Character.getNumericValue(s.charAt(0)),
-							Character.getNumericValue(s.charAt(2)));
-					c.print();
-				}
-				if (option == 1){
-					c.print();
-					c.calcNextGen();
-					c.updateGen();
-					c.print();
-				}
+			if (option == 2) {
+				c.createLife(Character.getNumericValue(s.charAt(0)),
+						Character.getNumericValue(s.charAt(2)));
+				c.print();
+			}
+			
+			if (option == 1) {
+				c.print();
+				c.calcNextGen();
+				c.updateGen();
+				c.print();
+			}
 
 				
 		}

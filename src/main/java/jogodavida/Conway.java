@@ -10,22 +10,23 @@ public class Conway {
 		world = new boolean[Conway.size][Conway.size][2];
 	}
 	
-	public int createLife(int x, int y) {
+	//changed return to void to kill mutant
+	public void createLife(int x, int y) {
 		world[x][y][0] = true;
-		return 0;
 	}
-	
-	public int updateGen() {
+
+	//changed return to void to kill mutant
+	public void updateGen() {
 		for(boolean[][] row : world) {
 			for(boolean[] cell : row) {
 				cell[0] = cell[1];
 				cell[1] = false;
 			}
 		}
-		return 0;
 	}
-	
-	public int calcNextGen() {
+
+	//changed return to void to kill mutant
+	public void calcNextGen() {
 		for(int i = 0; i < world.length; i++) {
 			for(int j = 0; j < world.length; j++) {
 				if(tryReviveCell(world[i][j], i, j))
@@ -33,7 +34,6 @@ public class Conway {
 			}
 			
 		}
-		return 0;
 	}
 	
 	private int countNeighbors(int x, int y) {
@@ -83,17 +83,16 @@ public class Conway {
 		if(cell[0]) { //celula ja viva
 			if(count == 2 || count == 3)
 				return true;
-		}else
-			if(count == 3)
+		} else if(count == 3) {
 				return true;
-		
+		}
 		//nao foi possivel reviver celula
 		return false;
 	}
 		
 	public void print() { 
 		for(int i=0; i < world.length; i++) {
-			for(int j=0; j < world.length; j++) {
+			for(int j = 0; j < world.length; j++) {
 				if(world[i][j][0])
 					System.out.print("1");
 				else 
