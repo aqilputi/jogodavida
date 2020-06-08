@@ -9,6 +9,12 @@ import java.io.PrintStream;
 
 import org.junit.Before;
 
+/**
+ * @author Carolina Arenas Okawa (NUSP: 10258876)
+ * @autor Fernando Akio Tutume de Salles Pucci (NUSP: 8957197)
+ * @author Pedro Henrique Siqueira de Oliveira (nº USP: 8922006)
+ *
+ */
 public class TestSetEstr {
 
 	private InputStream inputStream;

@@ -1,5 +1,11 @@
 package jogodavida;
 
+/**
+ * @author Carolina Arenas Okawa (NUSP: 10258876)
+ * @autor Fernando Akio Tutume de Salles Pucci (NUSP: 8957197)
+ * @author Pedro Henrique Siqueira de Oliveira (nº USP: 8922006)
+ *
+ */
 public class Input {
 	static public int handle(String inputstr) {
 		if (inputstr.length() == 1) {

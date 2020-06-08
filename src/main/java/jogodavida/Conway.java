@@ -1,5 +1,11 @@
 package jogodavida;
 
+/**
+ * @author Carolina Arenas Okawa (NUSP: 10258876)
+ * @autor Fernando Akio Tutume de Salles Pucci (NUSP: 8957197)
+ * @author Pedro Henrique Siqueira de Oliveira (nº USP: 8922006)
+ *
+ */
 public class Conway {
 	public static int size = 6;
 
@@ -27,7 +33,7 @@ public class Conway {
 	// changed return to void to kill mutant
 	public void calcNextGen() {
 		for (int i = 0; i < world.length; i++) {
-			for (int j = 0; j < world.length; j++) {
+			for (int j = 0; j < world[0].length; j++) {
 				if (tryReviveCell(world[i][j], i, j))
 					world[i][j][1] = true;
 			}
@@ -91,7 +97,7 @@ public class Conway {
 
 	public void print() {
 		for (int i = 0; i < world.length; i++) {
-			for (int j = 0; j < world.length; j++) {
+			for (int j = 0; j < world[0].length; j++) {
 				if (world[i][j][0])
 					System.out.print("1");
 				else
